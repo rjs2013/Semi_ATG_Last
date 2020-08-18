@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="calendar">
+	
+	<insert id="insertCal" parameterType="calDto" >
+		INSERT INTO CALENDAR
+		VALUES(CALENDARSEQ.NEXTVAL, #{ca_title}, #{ca_content}, #{ca_mdate}, SYSDATE, #{mb_id})
+	</insert>
+	
+	<select id="getCalList" resultType="calDto">
+		SELECT CA_NO, CA_TITLE, CA_CONTENT, CA_MDATE, CA_REGDATE
+		FROM CALENDAR
+		WHERE MB_ID = #{mb_id} AND SUBSTR(CA_MDATE, 1, 8) = #{yyyyMMdd}
+		ORDER BY CA_NO DESC
+	</select>
+	
+	<select id="selectOne" resultType="calDto">
+		SELECT CA_NO, CA_TITLE, CA_CONTENT, CA_MDATE, CA_REGDATE, MB_ID
+		FROM CALENDAR
+		WHERE CA_NO = #{ca_no}
+	</select>
+	
+	<update id="update" parameterType="calDto" >
+		UPDATE CALENDAR
+		SET CA_TITLE = #{ca_title}, CA_CONTENT = #{ca_content}
+		WHERE CA_NO = #{ca_no}
+	</update>
+	
+	<select id="getViewList" resultType="calDto">
+		SELECT CA_NO, CA_TITLE, CA_CONTENT, CA_MDATE, CA_REGDATE, MB_ID
+		FROM (SELECT (ROW_NUMBER() OVER (PARTITION BY SUBSTR(CA_MDATE, 1, 8) ORDER BY CA_MDATE))RN, 
+		CA_NO, CA_TITLE, CA_CONTENT, CA_MDATE, CA_REGDATE, MB_ID FROM CALENDAR
+		WHERE MB_ID = #{mb_id} AND SUBSTR(CA_MDATE, 1, 6) = #{yyyyMM}) WHERE RN BETWEEN 1 AND 3
+	</select>
+	
+	<select id="getViewCount" resultType="int">
+		SELECT COUNT(*) FROM CALENDAR
+		WHERE MB_ID = #{mb_id} AND SUBSTR(CA_MDATE, 1, 8) = #{yyyyMMdd}
+	</select>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM CALENDAR
+		WHERE CA_NO = #{ca_no}
+	</delete>
+	
+	<select id="getView" resultType="calDto">
+		SELECT CA_TITLE, CA_MDATE, CA_NO
+		FROM CALENDAR
+		WHERE MB_ID = #{mb_id} AND (CA_MDATE BETWEEN TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS') AND TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')+1)
+		ORDER BY CA_MDATE
+	</select>
+
+</mapper>

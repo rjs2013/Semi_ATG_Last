@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="member">
+  
+  <select id="selectList" resultType="memberDto">
+  	SELECT MB_NO, MB_NAME, MB_ID, MB_EMAIL, MB_ADDR, MB_GRADE
+  	FROM MEMBER
+  	ORDER BY MB_NO
+  </select>
+  
+  <select id="selectOne" parameterType="int" resultType="memberDto">
+  	SELECT MB_NO, MB_NAME, MB_GENDER, MB_ID, MB_EMAIL, MB_ADDR, MB_GRADE
+  	FROM MEMBER
+  	WHERE MB_NO = #{mb_no}
+  	ORDER BY MB_NO
+  </select>
+  
+  <update id="update" parameterType="memberDto">
+  	UPDATE MEMBER
+  	SET MB_GRADE = #{mb_grade}
+  	WHERE MB_NO = #{mb_no}
+  </update>
+  
+  <select id="search" resultType="memberDto">
+	SELECT MB_NO, MB_NAME, MB_GENDER, MB_ID, MB_EMAIL, MB_ADDR
+	FROM MEMBER
+	WHERE ${search_op} LIKE '%'||#{search}||'%'
+	ORDER BY MB_NO
+  </select>
+  
+  <select id="privarcy" resultType="memberDto">
+  	SELECT MB_NO, MB_NAME, MB_GENDER, MB_ID, MB_EMAIL, MB_ADDR, MB_PW
+	FROM MEMBER
+	WHERE MB_NO = TO_NUMBER(#{mb_no}) AND ((SELECT MB_PW FROM MEMBER WHERE MB_NO = TO_NUMBER(#{mb_no})) LIKE #{mb_pw})
+  </select>
+  
+  <update id="updateUser" parameterType="memberDto">
+  	UPDATE MEMBER
+  	SET MB_PW = #{mb_pw}, MB_EMAIL = #{mb_email}, MB_ADDR = #{mb_addr}
+  	WHERE MB_NO = #{mb_no}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+  	DELETE FROM MEMBER WHERE MB_NO = #{mb_no}
+  </delete>
+  
+    <update id="update_photo" parameterType="memberDto">
+  	UPDATE MEMBER
+  	SET MB_PHOTO = #{mb_photo}, MB_NAME = #{mb_name}
+  	WHERE MB_NO = #{mb_no}
+  </update>
+  
+</mapper>

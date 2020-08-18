@@ -1,0 +1,114 @@
+@charset "UTF-8";
+/*---------set------------*/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+li,ul,ol {list-style: none;}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+/*------header------------*/
+
+/*---------nav------------*/
+
+/*---------section------------*/
+
+.secssion{
+}
+
+.wheelView{
+	width: 100%;
+	height: 100vh;
+}
+
+.text_box{
+	margin-top: 50px;
+	margin-left: 5%;
+	float: left;
+	color: black;
+	font-size: 70px;
+}
+
+.movie_box{
+	margin-top: 5%;
+	margin-left: 5%;
+	float: left;
+	width: 600px;
+	height: 400px;
+	position: relative;
+}
+
+.pointer{
+	cursor:pointer;
+}
+
+.movie_style{
+	width: 99%;
+	height: 400px;
+}
+
+#window1{
+	background-size: 100%;
+}
+
+#window2{
+	background-size: 100%;
+}
+
+#window3{
+	background-size: 100%;
+}
+
+#window4{
+	background-size: 100%;
+}
+
+/*-----------side------------*/
+#side{
+	
+}
+
+.sidebar{
+	width: 50px;
+	height: 50px;
+	margin-bottom: 15px;
+	border-radius: 50%;
+	text-align: center;
+	background-color: #353b48;
+	color: white;
+	cursor: pointer;
+}
+
+.sidefix{
+	position: fixed;
+	margin-left: 95%;
+	top: 500px;
+	z-index: 100;
+}
+
+/*---------footer------------*/
+.footer{
+    padding: 10px 0px 10px 0px;
+    background-color: #4b4b4b;
+    color: white;
+    width: 100%;
+    position: relative;
+    float: left;
+}
+.footer_info{
+	margin-left: 15%;
+}
+
+.workout_text{
+	margin-top: 20px;
+	margin-left: 5%;
+	float: left;
+	color: white;
+	font-size: 20px;
+}
+

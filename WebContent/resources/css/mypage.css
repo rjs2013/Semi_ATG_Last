@@ -1,0 +1,71 @@
+*{
+	box-sizing: border-box;
+}
+
+.secssion{
+	position: relative;    
+    text-align: center;
+    height: 1300px;
+}
+
+.propile_box{
+	margin-top:50px;
+	margin-left:20px;
+	width: 40%;
+	height: 300px;
+	border : 1px solid #dfe6e9;
+	float:left;
+	z-index: -1;
+}
+
+.propile_img_box{
+	float: left;
+	width: 100%;
+}
+
+#propile_img{
+	float: left;
+	width: 60%;
+	margin-top: 40px;
+	margin-left: 20%;
+	height: 200px;
+	cursor: pointer;
+}
+
+.propile_id{
+	font-size: 14pt;
+	float: left;
+	margin-left: 10px;
+	width: 15%;
+}
+
+.propile_update{
+	float: right;
+	margin-right: 10px;
+	width: 22%;
+	cursor: pointer;
+}
+
+.inbody_update{
+	position: absolute;
+	margin:0;
+	float: right;
+	width:20%;
+	
+}
+#inbody {
+	margin:50px;
+	width: 50%;
+	float:left;
+	
+}
+
+.inbody_button {
+	position:absolute;
+	float:right;
+	margin-left: 200px;
+}
+
+#box{
+	z-index: -1;
+}

@@ -1,0 +1,149 @@
+@charset "UTF-8";
+
+/*---------section------------*/
+
+.secssion{
+	padding-top: 5%;
+    width: 80%;
+    margin: auto;
+    /*border-left: 1px solid #dfe6e9;
+    border-right: 1px solid #dfe6e9;*/
+    /*background-image: url(resources/img/backg.jpg);*/
+}
+
+/*------------content----------------  */
+
+/*-----------contentosm  ----------------------  */
+
+.table{
+	width: 100%;
+	height:100%;
+	position: relative;
+}
+.table2{
+	width: 100%;
+	height: 70%;
+	background:green;
+	position: absolute;	
+	margin-top: 10%;
+}
+
+.table3{
+	width: 100%;
+	height: 100%;
+	background: orange;
+	position: relative;
+	float: left;
+	}
+.table4{
+	width: 100%;
+	height: 75%;
+	margin-top: 5%;
+	background: gray;
+	position: absolute;
+}
+.table5{
+	width: 100%;
+	height: 100%;
+	background: yellowgreen;
+	position: absolute;
+}
+.content .img2{
+	margin-bottom: 50px;
+}
+
+
+.img1{
+	background: red;
+	width: 15%;
+	height: 25%;
+	position: absolute;
+	margin-left: 10%;
+	}
+
+
+div{
+	display: block;
+}
+span{
+	height: 20px;
+}
+
+
+.reply{
+	text-align: left;
+	margin-left: 10%;
+	margin-top: 1%;
+	margin-right:5%;
+	background: #d3d3d3;
+	text-align: center;
+	
+}
+.ID{
+	width:25%;
+	height: 20px;
+}
+.rep{
+	width: 50%;
+	height: 20px;
+	
+}
+
+.info{
+	width: 40%;
+	height: 30%;
+	background: skyblue;
+	margin-left: 25%;
+	text-align: center;
+	border-spacing: 10px 10px;
+}
+
+.upload{
+	text-align:center;
+	margin-left: 15%;
+	margin-right:15%;
+	background-color: black;
+}
+
+
+
+
+
+
+
+
+/*-----------side------------*/
+#side{
+	
+}
+
+.sidebar{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	text-align: center;
+	margin-bottom: 15px;
+	margin-left: 95%;
+	box-shadow: 0px 0px 5px 0px gray;
+	background-color: #3B3B98;
+	color: white;
+}
+
+.sidefix{
+	position: fixed;
+	float: left;
+	margin-left: 90%;
+	top: 500px;
+	z-index: 100;
+}
+
+/*---------footer------------*/
+.footer{
+    padding: 10px 0px 10px 0px;
+    background-color: #4b4b4b;
+    color: white;
+}
+.footer_info{
+	margin-left: 15%;
+}
+

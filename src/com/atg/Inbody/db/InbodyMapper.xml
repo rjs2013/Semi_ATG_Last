@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.atg.Inbody.mapper">
+	<resultMap type="inbodyDto" id="inbodyDto">
+		<result column="MB_NO" property="mb_no"/>
+		<result column="WEIGHT" property="weight"/>
+		<result column="HEIGHT" property="height"/>
+		<result column="BMI" property="bmi"/>
+		<result column="IB_DATE" property="ib_date"/>
+		
+	</resultMap>
+	
+	<select id="selectList" parameterType="int" resultType="inbodyDto">
+		SELECT MB_NO, WEIGHT, BMI, IB_DATE FROM INBODY 
+		WHERE MB_NO = #{mb_no} ORDER BY IB_DATE
+	</select>
+	
+	<insert id="insert" parameterType="inbodyDto">
+		INSERT INTO INBODY
+		VALUES(INBODYSEQ.NEXTVAL, ${mb_no}, ${weight}, ${height}, ${bmi}, SYSDATE)
+	</insert>
+</mapper>

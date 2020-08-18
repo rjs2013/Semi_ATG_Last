@@ -1,0 +1,106 @@
+@charset "UTF-8";
+/*---------set------------*/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+	height: 100%;
+}
+
+li,ul,ol {list-style: none;}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+/*------header------------*/
+
+#logo{
+	width: 50px;
+	float: left;
+	cursor: pointer;
+}
+
+#header span h1{
+	float: left;
+	margin-left: 48%;
+	cursor: pointer;
+}
+
+#header{
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    height: 100px;
+    z-index: 999;
+}
+
+/*---------nav------------*/
+
+
+/*---------section------------*/
+
+.secssion{
+    width: 80%;
+    height: 1000px;
+    margin: auto;
+}
+
+#blank {
+	width: 100%;
+	height: 300px;
+}
+
+#box{
+	margin-top: 4%;
+}
+
+/*-----------side------------*/
+
+.sidebar{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	text-align: center;
+	margin-bottom: 15px;
+	background-color: #353b48;
+	color: white;
+	cursor: pointer;
+	display: hidden;
+}
+
+.sidefix{
+	position: fixed;
+	margin-left: 95%;
+	top: 400px;
+	z-index: 100;
+}
+
+.text{
+	margin-left: 5px;
+	color: white;
+}
+
+.search_bt{
+	width: 30px;
+	height: 30px;
+}
+
+.search_img{
+	width: 100%;
+	height: 100%;
+}
+
+/*---------footer------------*/
+.footer{
+    padding: 10px 0px 10px 0px;
+    background-color: #4b4b4b;
+    color: white;
+}
+.footer_info{
+	margin-left: 15%;
+}
+

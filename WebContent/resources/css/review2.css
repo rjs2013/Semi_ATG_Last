@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+
+
+
+#review_box{
+	
+	width: 100%;
+}
+
+.starR1{
+    background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat -52px 0;
+    background-size: auto 100%;
+    width: 15px;
+    height: 30px;
+    float:left;
+    text-indent: -9999px;
+    cursor: pointer;
+}
+.starR2{
+    background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
+    background-size: auto 100%;
+    width: 15px;
+    height: 30px;
+    float:left;
+    text-indent: -9999px;
+    cursor: pointer;
+}
+.starR1.on{background-position:0 0;}
+.starR2.on{background-position:-15px 0;}
+
+/*------------content----------------  */
+
+
+
+
+
+
+
+
+
+/*-----------side------------*/
+#side{
+	
+}
+
+.sidebar{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	text-align: center;
+	margin-bottom: 15px;
+	margin-left: 95%;
+	box-shadow: 0px 0px 5px 0px gray;
+	background-color: #353b48;
+	color: white;
+	cursor: pointer;
+}
+
+.sidefix{
+	position: fixed;
+	float: left;
+	margin-left: 90%;
+	top: 500px;
+	z-index: 100;
+}
+
+/*---------footer------------*/
+.footer{
+    padding: 10px 0px 10px 0px;
+    background-color: #4b4b4b;
+    color: white;
+}
+.footer_info{
+	margin-left: 15%;
+}
+

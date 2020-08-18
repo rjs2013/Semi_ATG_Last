@@ -1,0 +1,28 @@
+.secssion{
+	padding-top:5%;
+	height: 700px;
+}
+
+fieldset{
+	width: 25%;
+	margin: auto;
+}
+
+.field1{
+	border: 1px solid black;
+	margin-bottom: 20px;
+}
+
+.field2{
+	border: 1px solid black;
+}
+
+/*---------footer------------*/
+.footer{
+    padding: 10px 0px 10px 0px;
+    background-color: #4b4b4b;
+    color: white;
+}
+.footer_info{
+	margin-left: 15%;
+}

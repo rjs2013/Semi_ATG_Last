@@ -1,0 +1,46 @@
+	aside{
+		float : left;
+		height : 1000px;
+		width : 20%;
+	}
+	
+	.box{
+		float : right;
+		height : 1000px;
+		width : 78%;
+		position : relative;
+	}
+
+	#notice, #QnA{
+		position : absolute;
+		top : 0;
+	}
+	
+	.admin{
+		text-align : center;
+		line-height : 100px;
+	}
+	
+	form{
+		padding : 30px;
+	}
+
+	.search_bt{
+		background-color : white;
+		border : 0;
+	}
+	
+	.secssion{
+		padding-top: 5%;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

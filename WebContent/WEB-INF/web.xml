@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	version="4.0">
+	<display-name>Semi_ATG</display-name>
+	<welcome-file-list>
+		<welcome-file>main.jsp</welcome-file>
+
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>Notice</servlet-name>
+		<servlet-class>com.atg.controller.NoticeController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Notice</servlet-name>
+		<url-pattern>/NoticeController.do</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>Member</servlet-name>
+		<servlet-class>com.atg.controller.MemberController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Member</servlet-name>
+		<url-pattern>/MemberController.do</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>Cal</servlet-name>
+		<servlet-class>com.atg.controller.CalController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Cal</servlet-name>
+		<url-pattern>/CalController.do</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>Weather</servlet-name>
+		<servlet-class>com.atg.controller.WeatherController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Weather</servlet-name>
+		<url-pattern>/WeatherController.do</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>register</servlet-name>
+		<servlet-class>com.atg.controller.RegisterController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>register</servlet-name>
+		<url-pattern>/RegisterController.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>basket</servlet-name>
+		<servlet-class>com.atg.controller.Basketcontroller</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>basket</servlet-name>
+		<url-pattern>/Basketcontroller.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>item</servlet-name>
+		<servlet-class>com.atg.controller.Itemcontroller</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>item</servlet-name>
+		<url-pattern>/Itemcontroller.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>inbody</servlet-name>
+		<servlet-class>com.atg.controller.InbodyController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>inbody</servlet-name>
+		<url-pattern>/InbodyController.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>UploadPhoto</servlet-name>
+		<servlet-class>com.atg.controller.Mypage_FileUpload</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>UploadPhoto</servlet-name>
+		<url-pattern>/PhotoController</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>API</servlet-name>
+		<servlet-class>com.atg.controller.Testing</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>API</servlet-name>
+		<url-pattern>/controller</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>review</servlet-name>
+		<servlet-class>com.atg.controller.ReviewController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>review</servlet-name>
+		<url-pattern>/ReviewController.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>qna</servlet-name>
+		<servlet-class>com.atg.controller.QnAController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>qna</servlet-name>
+		<url-pattern>/QnAController.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>reviewReply</servlet-name>
+		<servlet-class>com.atg.controller.ReviewReplyController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>reviewReply</servlet-name>
+		<url-pattern>/ReviewReplyController.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>admin</servlet-name>
+		<servlet-class>com.atg.controller.AdminController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>admin</servlet-name>
+		<url-pattern>/AdminController.do</url-pattern>
+	</servlet-mapping>
+
+
+</web-app>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="notice">
+
+	<select id="selectList" parameterType="com.atg.paging.dto.PagingDto" resultType="noticeDto">
+		SELECT * 
+		FROM (SELECT ROWNUM R, NT_NO, NT_TITLE, NT_CONTENT, NT_DATE
+		FROM (SELECT NT_NO, NT_TITLE, NT_CONTENT, NT_DATE FROM NOTICE ORDER BY NT_NO DESC))
+		WHERE R BETWEEN #{startList} AND #{lastList}
+	</select>
+	
+	<select id="selectCount" resultType="int">
+ 		SELECT COUNT(*) FROM NOTICE
+ 	</select>
+	
+	<select id="selectOne" parameterType="int" resultType="noticeDto">
+		SELECT NT_NO, NT_TITLE, NT_CONTENT
+		FROM NOTICE
+		WHERE NT_NO = #{nt_no}
+		ORDER BY NT_NO
+	</select>
+	
+	<insert id="insert" parameterType="noticeDto">
+		INSERT INTO NOTICE
+		VALUES(NOTICESEQ.NEXTVAL, #{nt_title}, #{nt_content}, SYSDATE)
+	</insert>
+	
+	<update id="update" parameterType="noticeDto">
+		UPDATE NOTICE
+		SET NT_TITLE = #{nt_title}, NT_CONTENT = #{nt_content}
+		WHERE NT_NO = #{nt_no}
+	</update>
+
+	<delete id="delete" parameterType="int">
+		DELETE FROM NOTICE
+		WHERE NT_NO = #{nt_no}
+	</delete>
+	
+	<select id="search" resultType="noticeDto">
+	SELECT NT_NO, NT_TITLE, NT_DATE
+	FROM NOTICE
+	WHERE ${search_op} LIKE '%'||#{search}||'%'
+	ORDER BY NT_NO DESC
+  	</select>
+  
+  	<select id="selectlist" resultType="noticeDto">
+		SELECT NT_NO, NT_TITLE, NT_CONTENT
+		FROM NOTICE
+		ORDER BY NT_NO
+	</select>
+
+</mapper>

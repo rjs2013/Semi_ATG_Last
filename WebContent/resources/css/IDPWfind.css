@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+/*---------------------------*/
+/*--------ID, PW find--------*/
+.secssion{
+	padding-top: 3%;
+}
+	
+   #id_form{
+        font-size: 1.3em;
+        width: 40%;
+        text-align:center;
+        display: inline-block;
+        margin-top: 13%;
+        margin-left: 25%;
+        background: green;
+    }
+     #pwd_form{
+        font-size: 1.3em;
+        width: 40%;
+        display: inline-block;
+        margin-top: 16%;
+        margin-left: 25%;
+        text-align: center;
+        background: green;
+    }
+ 
+    
+   
+
+

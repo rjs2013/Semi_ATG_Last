@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper">
+<!--전체 사용 조회  -->
+	<!-- <select id="selectList" resultType="DeptDto">
+	SELECT 
+	FROM MEMBER
+	ORDER BY MB_ID
+	</select> -->
+	<!-- 회원가입 -->
+	
+	<insert id="insert" parameterType="RegisterDto">
+		INSERT INTO MEMBER
+		VALUES(MEMBERSEQ.NEXTVAL,#{mb_id},#{mb_pw},#{mb_name},#{mb_gender},#{mb_email},#{mb_addr},'USER',null)
+	</insert>
+	
+	<!-- 로그인 -->
+	
+	
+	
+	<select id="login"  resultType="RegisterDto" >
+		SELECT MB_NO,MB_ID,MB_PW,MB_NAME,MB_GENDER,MB_EMAIL,MB_ADDR,MB_GRADE,MB_PHOTO
+		FROM MEMBER
+		WHERE MB_ID = #{mb_id} AND MB_PW=#{mb_pw}
+	</select>
+
+	<!--아이디 중복체크  -->
+	<select id="idCheck" parameterType="String" resultType="integer">
+		SELECT COUNT(MB_ID) FROM MEMBER WHERE MB_ID = #{mb_id}
+	</select>
+	
+	<!--이메일 중복체크  -->
+	<select id="emailCheck" parameterType="String" resultType="integer">
+		SELECT COUNT(MB_EMAIL) FROM MEMBER WHERE MB_EMAIL = #{mb_email}
+	</select>
+
+	<!--Id찾기  -->
+	<select id="IDfind" parameterType="String" resultType="RegisterDto" >
+		SELECT  MB_NO,MB_ID,MB_PW,MB_NAME,MB_GENDER,MB_EMAIL,MB_ADDR,MB_GRADE,MB_PHOTO
+		FROM MEMBER 
+		WHERE MB_NAME=#{mb_name} AND MB_EMAIL=#{mb_email}
+	</select>
+	
+	
+	<!--pw찾기 -->  
+	<select id="PWfind" parameterType="String" resultType="RegisterDto" >
+		SELECT  MB_NO,MB_ID,MB_PW,MB_NAME,MB_GENDER,MB_EMAIL,MB_ADDR,MB_GRADE,MB_PHOTO
+		FROM MEMBER 
+		WHERE MB_NAME=#{mb_name} AND MB_EMAIL=#{mb_email} AND MB_ID=#{mb_id}
+	</select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+</mapper>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper">
+  
+<!--   	<resultMap type="" id="mdobardMap">
+		<result property="" column="SEQ"/>
+		<result property="" column="WRITER"/>
+		<result property="" column="TITLE"/>
+		<result property="" column="CONTENT"/>
+		<result property="" column="REGDATE"/>
+	</resultMap>
+  
+   -->
+  
+  <!--전체글 조회  -->
+  	<select id="selectList"  resultType="ReviewReplyDto">
+  		SELECT RR_NO, RV_NO, RR_GROUPSEQ, RR_TAB ,MB_ID , RR_CONTENT ,RR_DATE
+  		FROM REVIEW_REPLY
+  		WHERE RV_NO = #{rv_no}
+  		ORDER BY RR_GROUPSEQ , RR_NO
+  	</select>
+  
+  <!--새로운 글작성  -->
+  	<insert id="insert" parameterType="ReviewReplyDto">
+  		INSERT INTO REVIEW_REPLY
+  		VALUES(REPLYSEQ.NEXTVAL,#{rv_no},REPLYGROUPSEQ.NEXTVAL,0,#{mb_id},#{rr_content},SYSDATE)
+  	</insert>
+  	
+  	
+  <!--댓글 수정   -->	
+  	<update id="update" parameterType="ReviewReplyDto">
+  		UPDATE REVIEW_REPLY
+  		SET RR_CONTENT = #{rr_content}
+  		WHERE RR_NO = #{rr_no} AND MB_ID = #{mb_id}
+  	</update>
+  	
+  	
+  	<!--댓글 삭제  -->
+  		<delete id="delete" parameterType="HashMap">
+  	DELETE FROM REVIEW_REPLY
+  	WHERE RR_NO= #{rr_no} AND (SELECT MB_ID FROM REVIEW_REPLY WHERE RR_NO = #{rr_no}) = #{mb_id} 
+  	
+  	</delete>
+  	
+  	
+  	<!--
+  		String ANSWER_UPDATE_SQL = " UPDATE ANSWERBOARD "
+			   				 + " SET GROUPSEQ = GROUPSEQ + 1 "
+			   				 + " WHERE GROUPNO = (SELECT GROUPNO FROM ANSWERBOARD WHERE BOARDNO = ?) "
+			   				 + " AND GROUPSEQ > (SELECT GROUPSEQ FROM ANSWERBOARD WHERE BOARDNO = ?) ";
+	 -->
+	 
+ <update id="answerUpdate" parameterType="ReviewReplyDto">
+		UPDATE REVIEW_REPLY
+		SET RR_GROUPSEQ = RR_GROUPSEQ + 1
+		WHERE RV_NO = (SELECT RV_NO FROM REVIEW_REPLY WHERE RR_NO= #{rr_no})
+		AND RR_GROUPSEQ > (SELECT RR_GROUPSEQ FROM REVIEW_REPLY WHERE RR_NO = #{rr_no})
+	 </update>
+	 
+	<!--  
+	
+	String ANSWER_INSERT_SQL = " INSERT INTO ANSWERBOARD "
+							 + " VALUES (BOARDNOSEQ.NEXTVAL, "
+							 + "         (SELECT GROUPNO FROM ANSWERBOARD WHERE BOARDNO = ?), "
+							 + "         (SELECT GROUPSEQ+1 FROM ANSWERBOARD WHERE BOARDNO = ?), "
+							 + "         (SELECT TITLETAB+1 FROM ANSWERBOARD WHERE BOARDNO = ?), "
+							 + "		 'N', "
+							 + "         ?, ?, ?, SYSDATE) "; -->
+  	 
+  	 
+	<insert id="answerInsert" parameterType="ReviewReplyDto">
+  		INSERT INTO REVIEW_REPLY
+  		VALUES (REPLYSEQ.NEXTVAL,
+  				(SELECT RV_NO FROM REVIEW_REPLY WHERE RR_NO = #{rr_no}),
+  				(SELECT RR_GROUPSEQ+1 FROM REVIEW_REPLY WHERE RR_NO = #{rr_no}),
+  				(SELECT RR_TAB+1 FROM REVIEW_REPLY WHERE RR_NO=#{rr_no}),
+ 				 #{mb_id},#{rr_content},SYSDATE)
+  	
+  	</insert>
+ 
+
+
+
+</mapper>
+

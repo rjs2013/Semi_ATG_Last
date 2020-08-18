@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="weather">
+
+	<select id="searchlist" resultType="WeatherDto">
+		SELECT CODE
+		FROM WEATHER
+		WHERE NAME LIKE #{search}
+	</select>
+	
+	<select id="search" resultType="String">
+		SELECT CODE
+		FROM WEATHER
+		WHERE NAME LIKE #{search} AND ROWNUM = 1
+	</select>
+
+</mapper>

@@ -1,0 +1,40 @@
+h2{
+	text-align:center;
+	
+}
+#cam{
+	margin-left:3%;
+	width:45%;
+	height:600px;
+	float:left;
+	/*border:1px solid green;*/
+}
+
+#video-container {	
+	margin-left:3%;
+	width:45%;
+	height:600px;
+	float:left;
+	/*border:1px solid red;*/
+}
+
+#label-container {
+	position:relative;
+	margin-top:700px;
+}
+
+#count{
+	font-size: 100pt;
+	position:absolute;
+	margin-top: 180px;
+	margin-left: 200px;
+}
+
+#canvas {
+	margin-left:5%;
+}
+
+#print-time {
+	text-align:center;
+	font-size:50px;
+}

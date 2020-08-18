@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="Basket">
+
+	<select id="isMember" resultType="BasketDto">
+		SELECT MB_NO, ITEM_NO, BAS_COUNT
+		FROM BASKET
+		WHERE MB_NO = #{mb_no}
+	</select>
+	
+	<!-- 장바구니에 추가 -->
+	<insert id="insertBas" parameterType="BasketDto">
+		INSERT INTO BASKET
+		VALUES (#{mb_no}, #{item_no}, #{bas_count}, BASKETSEQ.NEXTVAL, 'N')
+	</insert>
+	
+	<!-- 장바구니에서 보여질 리스트 : (item)사진, (item)상품이름, (basket)수량, (item)가격-->
+	<resultMap type="ItemDto" id="ItemDto">
+		<result column="item_url" property="item_url"></result>
+		<result column="item_name" property="item_name"/>
+		<result column="item_no" property="item_no"/>
+		<result column="item_price" property="item_price"/>
+	</resultMap>
+	
+	<resultMap type="BasketDto" id="BasketDto">
+		<result column="bas_count" property="bas_count"/>
+		<result column="bas_no" property="bas_no"/>
+		<result column="bas_pay" property="bas_pay"/>
+		<collection property="ItemDto" resultMap="ItemDto"></collection>
+	</resultMap>
+	
+	<select id="selectList" parameterType="BasketDto" resultMap="BasketDto">
+		SELECT i.ITEM_URL, i.ITEM_NAME, b.BAS_COUNT, i.ITEM_PRICE, b.BAS_NO, i.ITEM_NO, b.BAS_PAY
+		FROM ITEM i JOIN BASKET b ON i.ITEM_NO = b.ITEM_NO
+		WHERE b.MB_NO = #{mb_no}
+	</select>
+	
+	<!-- 장바구니 멀티딜리트 -->
+	<select id="muldel" parameterType="map">
+		DELETE FROM BASKET
+		WHERE BAS_NO IN
+			<foreach collection="seqs" item="seq" open="(" separator="," close=")">
+				#{seq}
+			</foreach>
+	</select>
+	
+	<!-- 결제하기 버튼 -->
+	<resultMap type="ItemDto" id="Item">
+		<result column="item_name" property="item_name"/>
+		<result column="item_no" property="item_no"/>
+		<result column="item_count" property="item_count"/>
+		<result column="item_price" property="item_price"/>
+	</resultMap>
+	
+	<resultMap type="MemberDto" id="Member">
+		<result column="mb_no" property="mb_no"/>
+		<result column="mb_name" property="mb_name"/>
+		<result column="mb_addr" property="mb_addr"/>
+		<result column="mb_email" property="mb_email"/>
+	</resultMap>
+	
+	<resultMap type="BasketDto" id="Basket">
+		<result column="bas_count" property="bas_count"/>
+		<result column="bas_no" property="bas_no"/>
+		<collection property="ItemDto" resultMap="Item"></collection>
+		<collection property="MemberDto" resultMap="Member"></collection>
+	</resultMap>
+	
+
+	<select id="gopay" parameterType="BasketDto" resultMap="Basket">
+		SELECT m.MB_NAME, m.MB_ADDR, m.MB_EMAIL, i.ITEM_NAME, i.ITEM_PRICE, b.BAS_COUNT, m.MB_NO, b.BAS_NO
+		FROM MEMBER m JOIN BASKET b ON m.MB_NO = b.MB_NO
+					JOIN ITEM i ON b.ITEM_NO = i.ITEM_NO
+		WHERE b.MB_NO = #{mb_no}
+		AND b.BAS_NO = #{bas_no}
+	</select>
+	
+	<update id="update" parameterType="BasketDto">
+		UPDATE BASKET
+		SET BAS_PAY = #{bas_pay}
+		WHERE BAS_NO = #{bas_no}
+	</update>
+	
+</mapper>
+

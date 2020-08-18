@@ -1,0 +1,13 @@
+	#box{
+		border : 1px solid black;
+		width : 100%;
+		height : 80%;
+	}
+	
+	#box_tb{
+		margin : auto;
+		margin-top : 30%;
+		width : 80%;
+	}
+	
+	
